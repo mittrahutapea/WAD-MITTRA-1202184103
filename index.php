@@ -21,7 +21,7 @@
 </head>
 <body>
     <?php
-    $nama = $_POST['nama'];
+    $nama = $_POST['name'];
     $duration= $_POST['duration'];
     $tglawal= $_POST['checkin'];
     $checkin=date("d/m/Y",strtotime($tglawal));
@@ -68,7 +68,7 @@
                     <td> 
                         <ul>
                         <?php if(!isset($_POST['cek'])):?>
-                            <?php foreach($service as $a){ ?>
+                            <?php for($service as $a){ ?>
                                 <li>
                                     <?php echo $a; ?>
                                 </li>
