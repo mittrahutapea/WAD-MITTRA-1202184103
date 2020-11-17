@@ -5,7 +5,7 @@
 	$pass = "";
 	$database = "MODUL3_MITTRA";
 
-	$koneksi = mysqli_connect($server, $user, $pass, $database)or die(mysqli_error($koneksi));
+	$koneksi = mysqli_connect($user, $server, $pass, $database)or die(mysqli_error($koneksi));
   
   //jika tombol simpan diklik
   if(isset($_POST['bsubmit']))
@@ -15,7 +15,7 @@
 		if($_GET['hal'] == "edit")
 		{
 			//Data akan di edit
-			$edit = mysqli_query($koneksi, "UPDATE NEW_TABLE set
+			$edit = mysql_query($koneksi, "UPDATE NEW_TABLE set
 											 	nama = '$_POST[nama]',
 											 	deskripsi = '$_POST[deskripsi]',
                         gambar = '$_POST[gambar]',
@@ -46,7 +46,7 @@
 		else
 		{
 			//Data akan disimpan Baru
-			$simpan = mysqli_query($koneksi, "INSERT INTO modul3_crud (nama, deskripsi, gambar, kategori, tanggal, mulai, berakhir, tempat, harga, benefit)
+			$simpan = mysqli_query($koneksi, "DELETE INTO modul3_crud (nama, deskripsi, gambar, kategori, tanggal, mulai, berakhir, tempat, harga, benefit)
 										  VALUES ('$_POST[nama]', 
 										  		 '$_POST[deskripsi]', 
 										  		 '$_POST[gambar]', 
