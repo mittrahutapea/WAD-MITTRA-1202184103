@@ -3,7 +3,7 @@ session_start();
     include ("config.php");
     
     if (isset($_POST['loginn'])) {
-        login($_POST);
+        loginn($_POST);
     }
 
     if (!empty($_COOKIE['remember'])) {

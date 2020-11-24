@@ -79,11 +79,11 @@ function login($request)
         
             // cookies
             if (is_null($request['remember'])) {
-                setcookie('email', '', time() - 1);
+                setcookie('mail', '', time() - 1);
                 setcookie('password', '', time() - 1);
                 setcookie('remember', '', time() - 1);
             } else {
-                setcookie("email", $email);
+                setcookie("mail", $email);
                 setcookie("password", $password);
                 setcookie("remember", "checked");
             }
@@ -98,10 +98,10 @@ function login($request)
 }
 
 // CART
-if (!empty($_GET['produk'])) {
+if (!empty($_GET['product'])) {
     $user_id = $_SESSION['id'];
     $harga = $_GET['harga'];
-    $produk = $_GET['produk'];
+    $produk = $_GET['product'];
 
     $insert = "INSERT INTO cart VALUES ('','$user_id','$produk','$harga')";
     mysqli_query($conn, $insert);
